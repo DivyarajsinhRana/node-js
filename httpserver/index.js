@@ -1,4 +1,7 @@
 const http = require('http');
+const fs = require('fs');
+
+const users = fs.readFileSync('db.json','utf-8');
 
 const server = http.createServer((req, res) => {
     let uri = req.url;
@@ -21,6 +24,12 @@ const server = http.createServer((req, res) => {
                 res.end('<h1>contact page</h1>');
             }
             break;
+        case '/users':
+            {
+                res.writeHead(200,{"Content-type":'application/json'});
+                res.end(users);
+                break;
+            }
         default:
             {
                 res.writeHead(404, { "Content-type": "text/html" });

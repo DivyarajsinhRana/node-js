@@ -1,6 +1,7 @@
 const express = require('express');
 
 const app = express();
+const port = 3000;
 
 app.get('/',(req,res)=>{
     res.send('welcome to home page');
@@ -13,6 +14,6 @@ app.get('/contact',(req,res)=>{
     res.send('welcome to contact page')
 });
 
-app.listen(8000,()=>{
-    console.log("server run on port 8000")
+app.listen(port,()=>{
+    console.log(`server run on port ${port}`)
 });

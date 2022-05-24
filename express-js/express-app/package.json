@@ -1,0 +1,18 @@
+{
+  "name": "express-js",
+  "version": "1.0.0",
+  "description": "express-js tutorial practive",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "node-ja"
+  },
+  "author": "Divyaraj",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

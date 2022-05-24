@@ -2,10 +2,17 @@ const express = require('express');
 const path = require('path')
 const app = express();
 const port = 3000;
+// server static html 
+// const staticPath = path.join(__dirname,'../public')    // absolute file path
+// app.use(express.static(staticPath));      // built in middleware
 
-const staticPath = path.join(__dirname,'../public')
-app.use(express.static(staticPath));
+// server dynamic html using template engines
 
+app.set('view engine','hbs');
+
+app.get('/',(req,res)=>{
+    res.render('index',{channel:'divyaraj'});  // hbs file(index.hbs inside views directory)
+});
 app.get('/',(req,res)=>{
     res.send('<h1>welcome to home page</h1>');  // html
 });
@@ -19,7 +26,6 @@ app.get('/contact',(req,res)=>{
 app.get('/user',(req,res)=>{
     res.send({"username":"Ram","password":"123"})           //json
 });
-
 app.listen(port,()=>{
     console.log(`server run on port ${port}`)
 });

@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path')
+const hbs = require('hbs')
 const app = express();
 const port = 3000;
 // server static html 
@@ -7,10 +8,11 @@ const port = 3000;
 // app.use(express.static(staticPath));      // built in middleware
 
 // server dynamic html using template engines
-const templatePath = path.join(__dirname,'../src/template')
+const templatePath = path.join(__dirname,'../src/template/views')
+const partialPath = path.join(__dirname,'../src/template/partials')
 app.set('view engine', 'hbs');
 app.set('views',templatePath)      // rename views folder to template  (when we use template engines , views directory must be there so to rename it used this line of code)
-
+hbs.registerPartials(partialPath)
 app.get('/', (req, res) => {
     res.render('index', { channel: 'divyaraj' });  // hbs file(index.hbs inside views directory)
 });

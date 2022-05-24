@@ -21,7 +21,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-    res.status(200).send('welcome to about page')  //text
+    // res.status(200).send('welcome to about page')  //text
+    res.render('about')
 });
 app.get('/contact', (req, res) => {
     res.send('welcome to contact page')

@@ -9,7 +9,7 @@ const port = 3000;
 // server dynamic html using template engines
 const templatePath = path.join(__dirname,'../src/template')
 app.set('view engine', 'hbs');
-app.set('views',templatePath)      // rename views folder to template  
+app.set('views',templatePath)      // rename views folder to template  (when we use template engines , views directory must be there so to rename it used this line of code)
 
 app.get('/', (req, res) => {
     res.render('index', { channel: 'divyaraj' });  // hbs file(index.hbs inside views directory)

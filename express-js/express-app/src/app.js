@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
     // res.status(200).send('welcome to about page')  //text
-    res.render('about')
+    res.render('about')                            // hbs file(about.hbs inside views directory)
 });
 app.get('/contact', (req, res) => {
     res.send('welcome to contact page')
@@ -30,6 +30,12 @@ app.get('/contact', (req, res) => {
 app.get('/user', (req, res) => {
     res.send({ "username": "Ram", "password": "123" })           //json
 });
+app.get('/user/*',(req,res)=>{
+    res.render('404',{error:"Error 404!!,page not found for user..."})
+})
+app.get('*',(req,res)=>{
+    res.render('404',{error:"Error 404!!,page not found..."})
+})
 app.listen(port, () => {
     console.log(`server run on port ${port}`)
 });
